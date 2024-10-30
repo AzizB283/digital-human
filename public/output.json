@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "soundFile": "/var/www/html/realtime-voice-assistant-groq/public/output.wav",
+    "duration": 1.75
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.05, "value": "X" },
+    { "start": 0.05, "end": 0.40, "value": "B" },
+    { "start": 0.40, "end": 0.47, "value": "A" },
+    { "start": 0.47, "end": 0.54, "value": "E" },
+    { "start": 0.54, "end": 0.61, "value": "A" },
+    { "start": 0.61, "end": 0.68, "value": "C" },
+    { "start": 0.68, "end": 0.95, "value": "B" },
+    { "start": 0.95, "end": 1.03, "value": "A" },
+    { "start": 1.03, "end": 1.26, "value": "B" },
+    { "start": 1.26, "end": 1.40, "value": "C" },
+    { "start": 1.40, "end": 1.54, "value": "B" },
+    { "start": 1.54, "end": 1.75, "value": "X" }
+  ]
+}
