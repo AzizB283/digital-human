@@ -8,7 +8,7 @@ import { exec } from "child_process";
 import { runCommands } from "rhubarb-lip-sync";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPEN_AI_KEY,
+  apiKey: process.env.OPEN_AI_KEY
 });
 
 export default async function handler(req, res) {
@@ -26,11 +26,12 @@ export default async function handler(req, res) {
           //   content:
           //     'You are a school teacher.Your name is Tina. Give answers to the questions asked by the student in a simple and short manner.and make sure to answer the questions in a way that the student can understand. ',
           // },
-          { role: "user", content: text },
-        ],
+          { role: "user", content: text }
+        ]
       });
 
       const generatedText = chatCompletion?.choices[0]?.message?.content;
+      console.log("generatedText", generatedText);
 
       // Whisper OpenAI TTS
       //   const baseDir = path.resolve(process.cwd(), 'public', 'audio');
@@ -40,12 +41,16 @@ export default async function handler(req, res) {
         model: "tts-1",
         voice: "shimmer",
         input: generatedText || "",
-        response_format: "mp3",
+        response_format: "mp3"
       });
+
+      console.log("mp3 respose", mp3Response);
 
       const buffer = Buffer.from(await mp3Response.arrayBuffer());
       //   const speechFile = path.join(baseDir, 'output.mp3');
       //   await fs.writeFile(speechFile, buffer);
+
+      console.log("buffer", buffer);
 
       const lipSyncJson = await runCommands(buffer);
       console.log("lipSyncJson :-", lipSyncJson);
@@ -55,7 +60,7 @@ export default async function handler(req, res) {
       res.status(200).json({
         completion: generatedText,
         tts: buffer,
-        lipSync: lipSync,
+        lipSync: lipSync
       });
     } catch (error) {
       console.log("error in open ai response", error);

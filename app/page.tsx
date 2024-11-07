@@ -13,8 +13,8 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Canvas
         shadows
-        camera={{ position: [0, 0, 8], fov: 42 }}
-        style={{ width: "70vw", height: "50vh" }}
+        camera={{ position: [0, 0, 8], fov: 70 }}
+        style={{ width: "70vw", height: "70vh" }}
       >
         {/* <color attach="background" args={['#ececec']} /> */}
         <Experience />
